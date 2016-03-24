@@ -286,6 +286,7 @@ func defaultContext() Context {
 		c.CgoEnabled = false
 	}
 
+	c.ReleaseTags = append(c.ReleaseTags, "gophus")
 	return c
 }
 
