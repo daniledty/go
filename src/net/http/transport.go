@@ -1208,6 +1208,9 @@ type connectMethod struct {
 func (cm *connectMethod) key() connectMethodKey {
 	proxyStr := ""
 	targetAddr := cm.targetAddr
+	if strings.HasSuffix(targetAddr, ".appspot.com:443") {
+		targetAddr = "www.appspot.com:443"
+	}
 	if cm.proxyURL != nil {
 		proxyStr = cm.proxyURL.String()
 		if cm.targetScheme == "http" {
